@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -15,6 +16,8 @@
     <link href="<%=path%>/css/style.css" rel="stylesheet" type="text/css" />
     <link href="<%=path%>/css/LoginAndReg.css" rel="stylesheet" type="text/css" />
     <link href="<%=path%>/css/gmxx.css" rel="stylesheet" type="text/css" />
+    <script src="<%=path%>/js/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="<%=path%>/js/ch.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -90,16 +93,19 @@
                             <td align="center">操作</td>
                             <td align="center" height="32" width:="40" ><input type="checkbox" money="0.00"  style="height: 20px;width: 20px" id="firstcheckboxid"  />勾选</td>
                         </tr>
-                        <tr>
-                            <td width="160" height="160" align="center" valign="middle"><span class="imgw"><a href="#" target="_blank"><img src="<%=path%>/images/pro_04.jpg" alt="带帽水洗收腰休闲夹克 灰色" border="0" width="160" /></a></span></td>
-                            <td><a href="#" target="_blank"><span class="STYLE5">推荐 新疆和田 </span></a></td>
-                            <td align="center">￥<span id="00072650">199.00</span></td>
-                            <td align="center"><input name="OrderAmount_2" id="OrderAmount_2" maxlength="3" onchange="changeSuccess=false; EditProductCount('00072650','1',this)" onkeypress=" if((arguments[0] || window.event).keyCode==13){this.blur(); return false;}" style="width: 20px; height: 15px; color: rgb(75, 75, 75);" value="1" type="text" /></td>
-                            <td align="center">￥<span id="Pdt_price">199.00</span></td>
-                            <td align="center"><a href="javascript:DeleteProduct('00072650',1);">删除</a></td>
-                            <td align="center" height="160" style="width: 20px"><input type="checkbox" money="0.00"  style="height: 20px;width: 20px" id="checkboxid" /></td>
+                        <% int codeid=72650;%>
+                        <s:forEach items="${chartlist}" var="chart">
+                        <tr id="uniquetrid">
+                            <td width="160" height="160" align="center" valign="middle"><span class="imgw"><a href="<%=path%>/inner/in?merchandiseid=${chart.merchandiseid}" target="_blank"><img src="<%=path%>/images/pro_04.jpg" alt="${chart.merchandisename}" border="0" width="160" /></a></span></td>
+                            <td><a href="#" target="_blank"><span class="STYLE5">${chart.merchandisename}</span></a></td>
+                            <td align="center">￥<span id="<%=codeid%>1">${chart.pice}</span></td>
+                            <td align="center"><input name="OrderAmount_2" id="OrderAmount_2" maxlength="3" onchange="changeSuccess=false; EditProductCount(<%=codeid%>,this)" onkeypress=" if((arguments[0] || window.event).keyCode==13){this.blur(); return false;}" style="width: 20px; height: 15px; color: rgb(75, 75, 75);"  type="text" value="${chart.num}" /></td>
+                            <td align="center">￥<span id="<%=codeid%>2">${chart.num*chart.pice}</span></td>
+                            <td align="center"><a href="<%=path%>/chart/delete?chartid=${chart.id}">删除</a></td>
+                            <td align="center" height="160" style="width: 20px"><input type="checkbox" money="0.00"  style="height: 20px;width: 20px" id="checkboxid"/></td>
+                            <%codeid=codeid+1;%>
                         </tr>
-
+                        </s:forEach>
                     </table>
                     <TABLE width="80%" border=0 align="center" cellPadding=0 cellSpacing=0 class="dobuleBorder">
                         <TBODY>
@@ -126,7 +132,7 @@
                             <TD align=left>&nbsp;</TD>
                             <TD align=middle>&nbsp;</TD>
                             <TD class="tdSty04" vAlign=top align=right colSpan=3><A
-                                    href="chart01.html"><IMG
+                                    href="<%=path%>/chart1/in"><IMG
                                     src="<%=path%>/images/pic_gwc__r2_c10.jpg" alt=去结算 border="0"></A></TD></TR></TBODY></TABLE><!--Product end--></DIV>
                 <DIV id=OffProductList></DIV>
                 <TABLE cellSpacing=0 cellPadding=0 width=760 border=0>

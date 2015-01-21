@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags/form" %>
 <% String _path=request.getContextPath();%>
 <html>
 <head>
@@ -82,6 +83,8 @@
                     </div>
                     <div class="regSetTabCon">
                         <form:form id="loginform" modelAttribute="user"  action="${ctx}/login/login" method="post">
+                            <%--<form:hidden path="merchandiseid" value="<%=request.getParameter("merchandiseid")%>"></form:hidden>--%>
+                            <%--<span><%=request.getParameter("merchandiseid")%></span>--%>
                         <div style="display: block;" id="con_one_1"> <span class="blank20"></span>
                             <div class="FTextArea"><span>用户名：</span>
                                 <form:input path="username"  onblur="Check_Username()"  id="Username" />

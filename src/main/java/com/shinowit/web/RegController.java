@@ -5,7 +5,6 @@ import com.shinowit.entity.TbaMemberinfo;
 import com.shinowit.framework.convert.Email.SendHtmlMail;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 
@@ -18,7 +17,6 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Administrator on 2014/12/25.

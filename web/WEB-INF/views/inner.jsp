@@ -166,7 +166,7 @@
                         </table></td>
                     </tr>
                     <tr>
-                        <td width="111" height="147">　</td>
+                        <td width="111" height="147"><a href="<%=path%>/inner/ind?merchandiseid=${tmemerchandise.merchandiseid}">加入购物车</a></td>
                     </tr>
                     <tr>
                         <td align="middle" width="323" colspan="2"

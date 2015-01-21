@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="ossq:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/ossq_war_exploded</output-path>
+    <output-path>$PROJECT_DIR$/target/ossq-1.0-SNAPSHOT</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -42,6 +42,7 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.2.2" />
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.1.2" />
           <element id="library" level="project" name="Maven: taglibs:standard:1.1.2" />
+          <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:3.1.0" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.2.8" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:1.2.2" />
           <element id="library" level="project" name="Maven: org.mybatis.generator:mybatis-generator-core:1.3.2" />

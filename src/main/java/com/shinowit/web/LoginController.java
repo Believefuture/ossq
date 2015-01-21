@@ -2,6 +2,7 @@ package com.shinowit.web;
 
 import com.shinowit.dao.mapper.TbaMemberinfoMapper;
 import com.shinowit.entity.TbaMemberinfo;
+import com.shinowit.entity.TmeMerchandiseinfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 
@@ -28,7 +30,7 @@ public class LoginController {
     }
 
     @RequestMapping("login")
-    public String login(@Valid @ModelAttribute("user") TbaMemberinfo userInfo,BindingResult bindingResult,HttpServletRequest request){
+    public String login(@Valid @ModelAttribute("user") TbaMemberinfo userInfo,BindingResult bindingResult,HttpServletRequest request,HttpSession session){
         if (bindingResult.hasErrors()) {
             return "login";
         }
@@ -41,7 +43,8 @@ public class LoginController {
 
         if(dd!=null){
             if(dd.getPwd().equals(userInfo.getPwd())){
-                return "index";
+                session.setAttribute("user",dd);
+                return "redirect:/index/in";
             }else {
                 String errormsg ="用户名或密码错误";
                 request.setAttribute("error",errormsg);
